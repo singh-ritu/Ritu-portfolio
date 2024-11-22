@@ -149,7 +149,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 
-function page() {
+function resume() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -293,4 +293,4 @@ function page() {
   );
 }
 
-export default page;
+export default resume;
