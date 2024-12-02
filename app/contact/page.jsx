@@ -1,7 +1,10 @@
 "use client";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Message } from "rsuite";
 
 import {
   Select,
@@ -14,7 +17,6 @@ import {
 } from "@/components/ui/select";
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
-import { Description } from "@radix-ui/react-dialog";
 
 const info = [
   {
@@ -37,9 +39,57 @@ const info = [
 import { motion } from "framer-motion";
 
 function Contact() {
+  const form = useRef();
+  const textareaRef = useRef(null);
+
+  const [success, setSuccess] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phNumber, setPhNumber] = useState("");
+
+  const handlefirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+  const handlelastName = (e) => {
+    setLastName(e.target.value);
+  };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlephNumber = (e) => {
+    setPhNumber(e.target.value);
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    if (firstName && lastName && email && phNumber != "") {
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhNumber("");
+      textareaRef.current.value = "";
+
+      emailjs
+        .sendForm("service_46ofpsl", "template_1f6ugrp", form.current, {
+          publicKey: "D-p2Hv1qgr3DzdjiM",
+        })
+        .then(
+          (result) => {
+            console.log("SUCCESS!");
+            console.log("Message is sent", result.text);
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+          }
+        );
+      setSuccess(true);
+    } else console.log("no entries");
+  };
+
   return (
     <motion.section
-      nitial={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
@@ -49,29 +99,63 @@ function Contact() {
       <div className="mx-auto container">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form
+              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+              ref={form}
+              onSubmit={sendEmail}
+            >
               <h3 className="text-4xl text-accent">Lets's Work together</h3>
               <p className="text-white/60">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
-                tempore repellendus, perspiciatis ducimus magni nam voluptatum,
-                amet dolore mollitia ut itaque laborum doloremque ea ab debitis
-                soluta sint omnis nulla.
+                Need a skilled frontend developer? I specialize in crafting
+                stunning, user-friendly websites. Let's connect and build
+                something amazing together.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstName" placeholder="FirstName" />
-                <Input type="lastName" placeholder="LastName" />
-                <Input type="email" placeholder="Email" />
-                <Input type="phone" placeholder="Phone" />
+                <Input
+                  type="text"
+                  name="firstName"
+                  placeholder="FirstName"
+                  value={firstName}
+                  onChange={handlefirstName}
+                />
+                <Input
+                  type="text"
+                  name="lastName"
+                  placeholder="LastName"
+                  value={lastName}
+                  onChange={handlelastName}
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={handleEmail}
+                />
+                <Input
+                  type="number"
+                  name="phoneNumber"
+                  placeholder="Phone"
+                  value={phNumber}
+                  onChange={handlephNumber}
+                />
               </div>
 
               <Textarea
                 className="h-[200px] "
+                name="message"
+                ref={textareaRef}
                 placeholder="Type your message here"
               />
-              <Button className="max-w-40" size="md">
+              <Button type="submit" value="send" className="max-w-40" size="md">
                 Send Message
               </Button>
             </form>
+            {success ? (
+              <Message type="success">Success! Message is sent</Message>
+            ) : (
+              console.log("not success")
+            )}
           </div>
 
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:orer-none mb-8 xl:mb-0">

@@ -21,7 +21,7 @@ const Projects = [
     category: "FullStack",
     title: "Milkify",
     Description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus aspernatur adipisci delectus.",
+      "Milkify is a full-stack web application for ordering and selling milk products. It features a dynamic menu with products fetched from the backend, secure session-based authentication, and a seamless order placement system. Built with React, Node.js, and Redux, it ensures an efficient and user-friendly experience.",
 
     stack: [{ name: "React" }, { name: "Css3" }, { name: "javaScript" }],
     image: "/assets/work/project01.jpeg",
@@ -33,7 +33,7 @@ const Projects = [
     category: "Frontend",
     title: "Social-Surge",
     Description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus aspernatur adipisci delectus, dolorum, aliquid modi explicabo aperiam molestiae esse assumenda distinctio illo asperiores similique? Recusandae velit quo iusto unde ratione.",
+      "Social Surge is a frontend UI project designed with a focus on sleek and modern design. Its key feature is dynamic theme handling, allowing users to switch seamlessly between themes for a personalized experience. Built with React and Tailwind CSS, it emphasizes responsiveness and visual appeal",
     stack: [{ name: "React" }, { name: "Css3" }, { name: "javaScript" }],
     image: "/assets/work/project02.jpeg",
     live: "",
@@ -44,7 +44,7 @@ const Projects = [
     category: "Frontend",
     title: "Github-userSearch",
     Description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus aspernatur adipisci delectus, dolorum, aliquid modi explicabo aperiam molestiae esse assumenda distinctio illo asperiores similique? Recusandae velit quo iusto unde ratione.",
+      "GitHubViewer is a frontend project leveraging REST APIs to enable users to search for GitHub profiles by username. It provides detailed insights into a user's repositories, followers, and gists, offering an intuitive and efficient way to explore GitHub data.",
     stack: [{ name: "React", name: "Tailwind" }, { name: "javaScript" }],
     image: "/assets/work/project03.jpeg",
     live: "",

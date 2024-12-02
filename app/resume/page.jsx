@@ -12,7 +12,7 @@ import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 const About = {
   title: "About Me",
   description:
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic doloribus ut atque deleniti magnam, fugit perspiciatis ipsum nulla minus obcaecati?",
+    "I am a passionate frontend developer dedicated to crafting visually appealing and user-friendly web applications. With a strong foundation in modern technologies, I thrive on turning ideas into interactive digital experiences.",
 
   info: [
     {
@@ -51,25 +51,14 @@ const About = {
 };
 
 const Experience = {
-  icon: "",
   title: "My Experience",
   description:
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic doloribus ut atque deleniti magnam, fugit perspiciatis ipsum nulla minus obcaecati?",
+    "As a frontend developer, I bring a solid foundation in JavaScript and React, honed through a 7-month internship where I actively contributed to real-world projects. During this time, I gained hands-on experience building advanced full-stack applications, which not only enhanced my technical skills but also deepened my understanding of the development lifecycle.",
   items: [
     {
-      company: "Tech Solutions Inc.",
-      position: "Full Stack",
-      duration: "2022 - present",
-    },
-    {
-      company: "web Development",
-      position: "Frontend intern",
-      duration: "2020-2021",
-    },
-    {
-      company: "E-commerce Startup",
-      position: "FreeLance Web Developer",
-      duration: "summer-2020",
+      company: "Superbrain",
+      position: "Frontend-Intern",
+      duration: "2024 - present",
     },
   ],
 };
@@ -78,10 +67,10 @@ const Education = {
   icon: "",
   title: "My Education",
   description:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit aut minima expedita sapiente necessitatibus similique. Doloribus, quos culpa quas mollitia aliquam, adipisci repellat incidunt molestias tenetur, at odio provident eaque?",
+    "I am a 2023 postgraduate with a Master’s in Computer Applications (MCA). My academic journey equipped me with a strong foundation in software development and problem-solving skills.",
   items: [
     {
-      institution: "Online Course Platform",
+      institution: "Udemy Platform",
       degree: "Full Stack Development Bootcamp",
       duration: "2023",
     },
@@ -91,7 +80,7 @@ const Education = {
       duration: "2020 - 2021",
     },
     {
-      institution: "Code Acadamey",
+      institution: "Udemy",
       degree: "Front-end Track",
       duration: "2022",
     },
@@ -101,7 +90,7 @@ const Education = {
 const skills = {
   title: "My Skills",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni vero odit saepe ratione dolores hic in, repellat veritatis illo provident assumenda at magnam accusamus quas aliquid rerum sequi atque distinctio!",
+    "I possess a diverse skill set in frontend and backend technologies, including HTML, CSS, JavaScript, React, Redux, and Node.js, enabling me to build dynamic, responsive web applications. I am proficient in Tailwind CSS for styling and have experience with Figma for designing user interfaces. My focus is on delivering seamless and visually appealing user experiences with efficient and scalable code.",
   skillList: [
     {
       icon: <FaHtml5 />,
@@ -161,7 +150,7 @@ function resume() {
     >
       <div className="container mx-auto">
         <Tabs
-          defaultValue="experience"
+          defaultValue="Experience"
           className="flex flex-col xl:flex-row gap-[60px]"
         >
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
