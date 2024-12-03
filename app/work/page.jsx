@@ -52,7 +52,7 @@ const Projects = [
   },
 ];
 
-function work() {
+function Work() {
   const [project, setProject] = useState(Projects[0]);
 
   const handleSlideChange = (swiper) => {
@@ -156,4 +156,4 @@ function work() {
   );
 }
 
-export default work;
+export default Work;

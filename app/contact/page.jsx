@@ -99,10 +99,12 @@ function Contact() {
               ref={form}
               onSubmit={sendEmail}
             >
-              <h3 className="text-4xl text-accent">Lets's Work together</h3>
+              <h3 className="text-4xl text-accent">
+                Lets&apos;s Work together
+              </h3>
               <p className="text-white/60">
                 Need a skilled frontend developer? I specialize in crafting
-                stunning, user-friendly websites. Let's connect and build
+                stunning, user-friendly websites. Let&apos;s connect and build
                 something amazing together.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
