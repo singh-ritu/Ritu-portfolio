@@ -4,17 +4,6 @@ import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Message } from "rsuite";
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectLabel,
-  SelectGroup,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 
@@ -42,11 +31,18 @@ function Contact() {
   const form = useRef();
   const textareaRef = useRef(null);
 
-  const [success, setSuccess] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phNumber, setPhNumber] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 3000);
+  };
 
   const handlefirstName = (e) => {
     setFirstName(e.target.value);
@@ -83,7 +79,6 @@ function Contact() {
             console.log("FAILED...", error.text);
           }
         );
-      setSuccess(true);
     } else console.log("no entries");
   };
 
@@ -147,16 +142,28 @@ function Contact() {
                 ref={textareaRef}
                 placeholder="Type your message here"
               />
-              <Button type="submit" value="send" className="max-w-40" size="md">
+              <Button
+                type="submit"
+                value="send"
+                className="max-w-40"
+                size="md"
+                onClick={handleButtonClick}
+              >
                 Send Message
               </Button>
             </form>
-            {success ? (
-              <Message type="success">Success! Message is sent</Message>
-            ) : (
-              console.log("not success")
-            )}
           </div>
+
+          {showPopup && (
+            <div className="popup fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/50">
+              <div className="bg-white p-4 rounded shadow-lg text-center">
+                <h2 className="text-xl font-bold text-accent">Success!</h2>
+                <p className="text-black">
+                  Your message has been sent successfully!
+                </p>
+              </div>
+            </div>
+          )}
 
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:orer-none mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
